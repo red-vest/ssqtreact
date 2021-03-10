@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useReducer} from 'react';
+import {useQuery, gql} from "@apollo/client";
 import './App.css';
 
+const EXCHANGE_RATES = gql`
+    query{
+        getAllBall{
+            redBall
+        }
+    }
+`;
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const {loading, error, data} = useQuery(EXCHANGE_RATES)
+    console.log(data)
+    if (loading) return <div>loading……</div>
+    if (error) return <div>{error}</div>
+    return (
+        <div>
+            1
+            {/*{data.rates.map((item: any, index: number) => {*/}
+            {/*    return <p key={index}>{item.currency}</p>*/}
+            {/*})}*/}
+        </div>
+    );
+};
 
 export default App;

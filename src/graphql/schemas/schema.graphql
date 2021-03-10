@@ -1,0 +1,52 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type BallData {
+    amountOne: Int
+    amountTwo: Int
+    blueBall: Int
+    date: String
+    fifthPrizeAmount: Int
+    fifthPrizeNumber: Int
+    firstPrizeAmount: Int
+    firstPrizeNumber: Int
+    fourthPrizeAmount: Int
+    fourthPrizeNumber: Int
+    period: String
+    redBall: [Int]
+    redBallOrder: [Int]
+    secondPrizeAmount: Int
+    secondPrizeNumber: Int
+    thirdPrizeAmount: Int
+    thirdPrizeNumber: Int
+}
+
+type Mutation {
+    addOnePerios(post: BallList): String
+}
+
+type Query {
+    getAllBall: [BallData]
+    getIndex: String
+    getNewPeriod: [BallData]
+}
+
+enum CacheControlScope {
+    PRIVATE
+    PUBLIC
+}
+
+input BallList {
+    blueBall: Int
+    date: String
+    perios: String
+    redBall: [Int]
+}
+
+
+"The `Upload` scalar type represents a file upload."
+scalar Upload
