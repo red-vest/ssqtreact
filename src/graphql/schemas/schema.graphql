@@ -30,8 +30,9 @@ type Mutation {
 }
 
 type Query {
-    getAllBall: [BallData]
+    getAllBall(blueBall: Int, date: String, firstPrizeNumber: Int, period: String, redBall: [Int]): [BallData]
     getIndex: String
+    getLottery(blueBall: Int!, redBall: [Int]!): [BallData]
     getNewPeriod: [BallData]
 }
 
